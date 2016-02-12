@@ -1,0 +1,228 @@
+body {
+margin: 0;
+  padding: 0;
+  background-color: #0C0C0C;
+
+}
+
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+
+}
+header {
+  background-color: antiquewhite;
+  margin-top: -22px;
+  margin-left: -4px;
+  margin-right: -4px;
+    h1 {
+      text-align: center;
+    }
+}
+
+
+.joueur1, .joueur2 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+.joueur {
+  //text-align: center;
+
+  .joueur1, .joueur2 {
+    //background-color: greenyellow;
+    padding: 10px;
+    display: inline-block;
+
+    -webkit-border-radius:25px;
+    -moz-border-radius:25px;
+    border-radius:25px;
+
+    margin-right: 20px;
+    width: 119px;
+  }
+
+  .chrono {
+    padding: 10px;
+    display: inline-block;
+
+    -webkit-border-radius:25px;
+    -moz-border-radius:25px;
+    border-radius:25px;
+
+    margin-right: 20px;
+    width: 119px;
+  }
+
+  .joueur1 {
+    background-color: #8e0d11;
+  }
+  .joueur2 {
+    background-color: #157714;
+  }
+  .chrono {
+    background-color: greenyellow;
+  }
+
+}
+
+.jeu {
+  width: 300px;
+  margin: 20px auto;
+  //border: 1px red solid;
+
+}
+
+.ligne1, .ligne2, .ligne3 {
+  display: block;
+  text-align: center;
+  border: 2px green solid;
+
+}
+
+.ligne1 div, .ligne2 div, .ligne3 div {
+  display: inline-block;
+  width: 30%;
+
+  border: 2px black solid;
+}
+
+input {
+  width: 92%;
+}
+
+.player1 {
+  //background-color: yellow;
+  background-image: url('../asset/img/croix.jpg');
+
+}
+
+.player2 {
+  //background-color: green;
+  background-image: url('../asset/img/rond.jpg');
+
+}
+.jeu div {
+  display: inline-block;
+  width: 32.2%;
+  height: 96px;
+  border: 2px greenyellow solid;
+  margin: 0;
+
+  background-color: #878282;;
+
+}
+
+button {
+  -webkit-border-radius:25px;
+  -moz-border-radius:25px;
+  border-radius:25px;
+
+  padding: 10px;
+
+  background-color: #777171;
+  margin-left: 34%;
+
+}
+
+button:hover {
+  background-color: #333;
+}
+
+
+/*Alert 1 */
+
+.alert1 {
+    width: 193px;
+    height: 92px;
+  background-color: #8e0d11;
+    border: 2px #0c0c0c solid;
+    position: absolute;
+    top: 128px;
+    left: 151px;
+    padding: 20px;
+    border-radius: 18px;
+    color: #fff;
+
+
+  h2{
+      background-color: #8e0d11;
+      font-size: 0.9em;
+    }
+}
+
+.btnAlert1 {
+  background-color: #333;
+  padding-top: 2px;
+  margin-top: 20px;
+  width: 32%;
+  text-align: center;
+  border-radius: 10px;
+  padding-bottom: 2px;
+  color: white;
+
+}
+
+.nom1 {
+  width: 92%;
+  height: 25px;
+}
+
+.alert2{
+  width: 193px;
+  height: 92px;
+  background-color: #157714;
+  border: 2px #0c0c0c solid;
+  position: absolute;
+  top: 128px;
+  left: 407px;
+  border-radius: 18px;
+  padding: 20px;
+  color: #fff;
+
+
+
+
+  h2{
+    background-color: #157714;
+    font-size: 0.9em;
+  }
+}
+
+.btnAlert2 {
+  background-color: #333;
+  padding-top: 2px;
+  margin-top: 20px;
+  width: 32%;
+  text-align: center;
+  border-radius: 10px;
+  padding-bottom: 2px;
+  color: white;
+
+}
+
+.nom {
+  width: 92%;
+  height: 25px;
+}
+
+
+//Chrno
+
+.chrono {
+  font-size: 16px;
+  color: #333;
+  font-weight:bold;
+}
+
+
+.affichage {
+  font-size: 25px;
+  color: #adff2f;
+  background-color: #878282;
+  margin-top: 20px;
+  height: auto;
+  text-align: center;
+}
