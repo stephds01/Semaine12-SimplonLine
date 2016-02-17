@@ -6,6 +6,8 @@
  * Time: 09:34
  */
 
+//header("Content-Type: text/plain");
+
 //Je récupère les donner text de mon fichier
     $script = file_get_contents('../towns.txt');
 //    print($script);
@@ -28,12 +30,15 @@
 $results = array();
 
     for($i=0; $i<$dataTowns && count($results); $i++) {
-
+        var_dump($dataTowns);
         if ( stripos($towns[$i], $_GET['param1']) === 0){
             array_push($results, $towns[$i]);
         }
     }
-    $res = implode('|', $results);
+    echo implode('|', $results);
+
+var_dump($results);
+
 
 
 
