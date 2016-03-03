@@ -4,25 +4,23 @@
 
 
     (function () {
-        var $dataUser = document.getElementById('dataUser');
-        var $results = document.getElementById('results');
+        var $dataUser = document.getElementById('dataUser'),
+            $results = document.getElementById('results'),
 
-        var selectedResult = -1;   //le result selectionné
-        var previousRequest;        //la precedente requete
-        var previousValue = $dataUser.value;
+            selectedResult = -1,   //le result selectionné
+            previousRequest,       //la précédente requete
+            previousValue = $dataUser.value;
 
 
         //Effectue la requete et je récup le resultat du php
         function getResults(town) {
             var xhr = new XMLHttpRequest();
-                xhr.open('GET', './php/script.php?param1=' + encodeURIComponent(town), true);
-                //console.log(town);
+            xhr.open('GET', './php/script.php?param=' + encodeURIComponent(town), true);
+
+            //console.log(town);
                 xhr.addEventListener('readystatechage', function () {
                     if (xhr.readyState == 4 && xhr.status == 200) {
-                        displayResults(xhr.responseText);   ///la réponse du php
-                        //console.log($results.innerHTML = xhr.responseText);
-                        console.log($results);
-                        console.log(xhr.responseText);
+                        displayResults(xhr.responseText);   //la réponse du php
                     } else {
                         console.log('Zut ca ne marche pas !');
                     }
@@ -34,14 +32,15 @@
 
         //affiche les résultats
         function displayResults(response) {
+            //On cache le container s il y a pas de resultat
             //if($results.length){
             //    $results.style.display = 'block';
             //} else {
             //    $results.style.display = 'none';
             //}
+            $results.style.display = response.length ? 'block' : 'none'; // On cache le conteneur si on n'a pas de résultats
 
-            $results.style.display = response.length ? 'block' : 'none';
-
+            //S il y a une réponse, je modifie
             if(response.length){
                 response = response.split('|');
                 var responseLen = response.length;
@@ -49,11 +48,11 @@
 
                 for(var i = 0, div; i< responseLen; i++) {
                     div = $results.appendChild(document.createElement('div'));
-                        divs.innerHTML = response[i];
+                    div.innerHTML = response[i];
 
-                        div.addEventListener('click',function(e){
-                            chooseResult(e.target);
-                        }, false);
+                    div.addEventListener('click',function(e){
+                        chooseResult(e.target);
+                    }, false);
                 }
             }
 
@@ -61,13 +60,16 @@
 
         //Choisis un des resultats d'une requete est gère tout ce qui y est attaché
         function chooseResult(result) {
-            $dataUser.value = previousRequest = result.innerHTML;
+            $dataUser.value = previousValue = result.innerHTML;
             $results.style.display = 'none';
+            result.className = '';
+            selectedResult = -1; // On remet la sélection à "zéro"
+            $dataUser.focus(); // Si le résultat a été choisi par le biais d'un clique alors le focus est perdu, donc on le réattribue
 
 
         }
 
-        //Quand il y z un mouvement sur input,déclencher ces actions
+        //Quand il y  un mouvement sur input,déclencher ces actions
         $dataUser.addEventListener('keyup', function(e) {
 
             var divs = $results.getElementsByTagName('div');

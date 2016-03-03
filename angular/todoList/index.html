@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="demoApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo-List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.js"></script>
+    <script type="text/javascript" src="js/todoList.js"></script>
+</head>
+<body>
+    <h1>Todo List</h1>
+
+    <section ng-controller="todoCtrl">
+        <form id="todo-form" ng-submit="addTodo()">
+            <input id="new-todo" placeholder="Que devez vous faire ?" ng-model="newTodo">
+        </form>
+        <article ng-show="todos.length">
+            <ul id="todo-list">
+                <li ng-repeat="todo in todos" ng-class="{completed: todo.completed}" >
+                    <div class="view">
+                        <input class="mark" type="checkbox" ng-model="todo-completed" />
+                        <span>{{todo.title}}</span>
+                        <span class="close" ng-click="removeTodo()">X</span>
+                    </div>
+                </li>
+            </ul>
+            <input id="mark-all" type="checkbox" ng-model="allChecked" ng-click="markAll(allChecked)" />
+            <label class="btn btn-info" for="mark-all">Tout cocher</label>
+            <button class="btn btn-danger" ng-click=clearCompletedTodo()">Supprimer les tâches cochées</button>
+        </article>
+    </section>
+</body>
+</html>

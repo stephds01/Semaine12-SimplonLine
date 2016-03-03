@@ -20,29 +20,21 @@
     $dataTowns = count($towns);
 //print_r($dataTowns);
 
-
 //Je tri les villes par ordre alphabetique
-    sort($towns);
+sort($towns);
 //print_r($towns);
 
-
 //Je crée un tab pour les futurs results
-$results = array('lol');
-var_dump($results);
+$results = array();
 
-echo 'lol';
 
-    for($i=0; $i<$dataTowns && count($results); $i++) {
-        if ( stripos($towns[$i], $_GET['param1=']) === 0){
+    for($i=0; $i<$dataTowns && count($results)<10; $i++) {
+        if ( stripos($towns[$i], $_GET['param']) === 0){
 
             array_push($results, $towns[$i]);
-            sort($results);
+//            sort($results);
         }
     }
     echo implode('|', $results);
 
-var_dump($results);
-
-
-
-
+//var_dump($results);
