@@ -20,3 +20,13 @@ var demoApp = angular.module('demoApp',[
  *Déclaration du module TodoList
  */
 var todoList = angular.module('todoList',[]);
+
+
+/**
+ *Controlleur de l'application TODOLIST
+ */
+todoList.controller('todoCtrl',[$scope, function($scope){
+    var todos = $scope.todos = [];
+}]);
+
+
